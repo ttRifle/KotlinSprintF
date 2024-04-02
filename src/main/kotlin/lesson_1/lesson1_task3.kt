@@ -1,5 +1,16 @@
 package org.example.lesson_1
 
 fun main() {
-    //lesson 1-3
+
+    val departureYear = 1961
+    var hour = 9
+    var minute = 7
+    println(departureYear)
+    println(hour)
+    println(minute)
+    hour = 10
+    minute = 55
+
+    println("$hour:$minute")
+
 }
