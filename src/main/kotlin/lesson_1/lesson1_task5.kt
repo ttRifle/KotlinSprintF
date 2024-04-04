@@ -2,25 +2,14 @@ package org.example.lesson_1
 
 fun main() {
 
-    val seconds: Int = 6480
-    val hours: Int = seconds / 3600
-    val minutes: Int
-    val timeSec: Int
+    val hoursOfTimeInCosmos = secondsInCosmos / 3600
+    val minutesOfTimeInCosmos = secondsInCosmos % 3600 / 60
+    val secondsOfTimeInCosmos = secondsInCosmos % 60
 
-    if (seconds < 3600) minutes = seconds / 60
-    else minutes = seconds / 60 - hours * 60
+    val timeInCosmos = String.format ("%02d:%02d:%02d",hoursOfTimeInCosmos, minutesOfTimeInCosmos, secondsOfTimeInCosmos)
 
-    if (minutes == 0 && hours == 0) timeSec = seconds
-    else if (minutes > 0 && hours == 0) timeSec = seconds - minutes * 60
-         else timeSec = seconds - hours * 3600 - minutes * 60
-
-    val hoursString = if (hours < 10) "0$hours"
-    else "$hours"
-    val minutesString = if (minutes < 10) "0$minutes"
-    else "$minutes"
-    val secsString = if (timeSec < 10) "0$timeSec"
-    else "$timeSec"
-
-    println("$hoursString:$minutesString:$secsString")
+    println(timeInCosmos)
 
 }
+
+const val secondsInCosmos = 6480
