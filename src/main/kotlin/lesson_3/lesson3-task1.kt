@@ -3,13 +3,13 @@ package org.example.lesson_3
 fun main() {
 
     val userName = "Борис"
-    var greetingUser = "Добрый день!"
+    var greetingUser = "Добрый день"
 
-    println(userName + ", " + greetingUser)
+    println("$userName, $greetingUser!")
 
-    greetingUser = "Добрый вечер!"
+    greetingUser = "Добрый вечер"
 
-    println(userName + ", " + greetingUser)
+    println("$userName, $greetingUser!")
 
 
 }
