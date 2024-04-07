@@ -6,7 +6,8 @@ fun main() {
     var depositYearPercent = 16.7
     var depositYears = 20
 
-    val FinalSum = String.format("%.3f",depositSum.toDouble() * Math.pow((1 + depositYearPercent/100),depositYears.toDouble()))
+    val FinalSum =
+        String.format("%.3f", depositSum.toDouble() * Math.pow((1 + depositYearPercent / 100), depositYears.toDouble()))
 
     println(FinalSum)
 }
