@@ -5,8 +5,8 @@ fun main() {
     val numberOfOrderedTablesToday = 13
     val numberOdOrderedTablesTomorrow = 9
 
-    println("Доступность столиков на сегодня: ${numberOfOrderedTablesToday< NUMBEROFTABLES} \nДоступность столиков на завтра: ${numberOdOrderedTablesTomorrow < NUMBEROFTABLES}")
+    println("Доступность столиков на сегодня: ${numberOfOrderedTablesToday < NUMBEROFTABLES} \nДоступность столиков на завтра: ${numberOdOrderedTablesTomorrow < NUMBEROFTABLES}")
 
 }
 
-const val NUMBEROFTABLES = 13
+const val NUMBER_OF_TABLES = 13
