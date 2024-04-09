@@ -7,11 +7,11 @@ fun main() {
     val cargo1Volume = 80
     val cargo2Volume = 100
 
-    println("Груз №1 с весом $cargo1Weight кг и объемом $cargo1Volume л соответствует категории 'Average': ${(cargo1Weight >= CARGOAVERAGEMINWEIGHT) && (cargo1Weight <= CARGOAVERAGEMAXWEIGHT) && (cargo1Volume <= CARGOAVERAGEMAXVOLUME)}")
-    println("Груз №2 с весом $cargo2Weight кг и объемом $cargo2Volume л соответствует категории 'Average': ${(cargo2Weight >= CARGOAVERAGEMINWEIGHT) && (cargo2Weight <= CARGOAVERAGEMAXWEIGHT) && (cargo2Volume <= CARGOAVERAGEMAXVOLUME)}")
+    println("Груз №1 с весом $cargo1Weight кг и объемом $cargo1Volume л соответствует категории 'Average': ${(cargo1Weight >= CARGO_AVERAGE_MIN_WEIGHT) && (cargo1Weight <= CARGO_AVERAGE_MAX_WEIGHT) && (cargo1Volume < CARGO_AVERAGE_MAX_VOLUME)}")
+    println("Груз №2 с весом $cargo2Weight кг и объемом $cargo2Volume л соответствует категории 'Average': ${(cargo2Weight >= CARGO_AVERAGE_MIN_WEIGHT) && (cargo2Weight <= CARGO_AVERAGE_MAX_WEIGHT) && (cargo2Volume < CARGO_AVERAGE_MAX_VOLUME)}")
 
 }
 
-const val CARGOAVERAGEMINWEIGHT = 35
-const val CARGOAVERAGEMAXWEIGHT = 100
-const val CARGOAVERAGEMAXVOLUME = 100
+const val CARGO_AVERAGE_MIN_WEIGHT = 35
+const val CARGO_AVERAGE_MAX_WEIGHT = 100
+const val CARGO_AVERAGE_MAX_VOLUME = 100
