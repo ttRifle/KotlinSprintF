@@ -11,13 +11,13 @@ fun main() {
     val winList = listOf(winNumber1, winNumber2, winNumber3)
 
     println("Введите первое число")
-    var userNumber1 = readln().toInt()
+    val userNumber1 = readln().toInt()
 
     println("Введите второе число")
-    var userNumber2 = readln().toInt()
+    val userNumber2 = readln().toInt()
 
     println("Введите третье число")
-    var userNumber3 = readln().toInt()
+    val userNumber3 = readln().toInt()
 
     val userList = listOf(userNumber1, userNumber2, userNumber3)
 
@@ -25,10 +25,12 @@ fun main() {
 
     val numberOfWinNumbers = userWinNumbers.size
 
-    if (numberOfWinNumbers == 3) println("Вы угадали все числа и выиграли джекпот")
-    else if (numberOfWinNumbers == 2) println("Вы угадали два числа и выиграли крупный приз")
-    else if (numberOfWinNumbers == 1) println("Вы угадали одно число и выиграли утешительный приз")
-    else println("Вы не угадали ни одного числа")
+    when (numberOfWinNumbers) {
+        3 -> println("Вы угадали все числа и выиграли джекпот")
+        2 -> println("Вы угадали два числа и выиграли крупный приз")
+        1 -> println("Вы угадали одно число и выиграли утешительный приз")
+        else -> println("Вы не угадали ни одного числа")
+    }
 
     println("Выигрышные номера $winList")
 
