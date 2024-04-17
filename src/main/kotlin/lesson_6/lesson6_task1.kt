@@ -18,4 +18,6 @@ fun main() {
 
     } while ((newUserName != userNameCheck) || (newPassword != userPassCheck))
 
+    println("Авторизация прошла успешно")
+
 }
