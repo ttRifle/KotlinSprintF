@@ -3,26 +3,27 @@ fun main() {
     val rangeUpperCase = 'A'..'Z'
     val rangeLowerCase = 'a'..'z'
     val rangeNumbers = 0..9
+    val rangeOfAllChars = rangeNumbers + rangeLowerCase + rangeUpperCase
     val minPassLenght = 6
-    val numberOfSymbolTypes = 1..3
-    var password: String = ""
+    val listOfPasswordSymbols: MutableList<String> = mutableListOf()
+    var password = ""
 
     println("Введите длину пароля который хотите сгенерировать(минимальная длина пароля 6 символов")
     var passLenght = readln().toInt()
     if (passLenght < minPassLenght) passLenght = 6
 
-    for (i in 1..passLenght) {
+    listOfPasswordSymbols.add(rangeNumbers.random().toString())
+    listOfPasswordSymbols.add(rangeLowerCase.random().toString())
+    listOfPasswordSymbols.add(rangeUpperCase.random().toString())
 
-        val symbolType = numberOfSymbolTypes.random()
+    for (i in 4..passLenght) {
+        listOfPasswordSymbols.add(rangeOfAllChars.random().toString())
+    }
 
-        val symbol: String = when (symbolType) {
-            1 -> rangeUpperCase.random().toString()
-            2 -> rangeLowerCase.random().toString()
-            else -> rangeNumbers.random().toString()
-        }
+    listOfPasswordSymbols.shuffle()
 
-        password += symbol
-
+    listOfPasswordSymbols.forEach() {
+        password += it
     }
 
     println(password)
