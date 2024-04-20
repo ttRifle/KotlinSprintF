@@ -1,7 +1,8 @@
+import java.util.*
+
 fun main() {
 
-    val listOfIngredientsFinalFormat: MutableList<String> = mutableListOf()
-    val listOfIngredients: MutableList<String> = mutableListOf()
+    var listOfIngredients: MutableList<String> = mutableListOf()
     val numberOfIngredients = 5
 
     println("Введите 5 ингридиентов вареной картошки")
@@ -9,13 +10,14 @@ fun main() {
         listOfIngredients.add(readln())
     }
 
-    val listOfIngredientsDistinct = listOfIngredients.distinct().sorted()
+    listOfIngredients.sort()
 
-    listOfIngredientsDistinct.indices.forEach() {
-        if (it != 0) listOfIngredientsFinalFormat.add(listOfIngredientsDistinct[it])
-        else listOfIngredientsFinalFormat.add(listOfIngredientsDistinct[it].capitalize())
-    }
+    listOfIngredients = listOfIngredients.toMutableSet().toMutableList()
 
-    println(listOfIngredientsFinalFormat)
+    listOfIngredients[0] =
+        listOfIngredients[0].replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+
+    println(listOfIngredients)
 
 }
+
