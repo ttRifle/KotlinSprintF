@@ -17,7 +17,7 @@ fun main() {
     listOfIngredients[0] =
         listOfIngredients[0].replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 
-    println(listOfIngredients)
+    println(listOfIngredients.joinToString())
 
 }
 
