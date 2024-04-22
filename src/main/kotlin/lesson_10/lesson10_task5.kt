@@ -2,28 +2,27 @@ fun main() {
 
     val userName = "Boris"
     val userPass = "Razor1"
-    val listOfCart = getCart((getToken(userName, userPass)))
+    val token = getToken(userName, userPass)
 
-    if (listOfCart.isNotEmpty())
-        println(listOfCart.joinToString())
-    else println("Отказ в доступе")
+    if (token != null)
+        println(getCart(token))
+    else println("Авторизация не удалась")
 
 }
 
-fun getCart(checkToken: String): List<String> {
+fun getCart(cartToken: String): List<String> {
+
     val listOfCartData = listOf("Телевизор", "Телефон", "Вертолет", "Трусы")
 
-    val returnCart: List<String> = if (checkToken != "null") listOfCartData else listOf()
-
-    return returnCart
+    return listOfCartData
 
 }
 
-fun getToken(nameToCheck: String, passToCheck: String): String {
+fun getToken(nameToCheck: String, passToCheck: String): String? {
 
     val userNameData = "boris"
     val userPassData = "Razor1"
-    var newToken = "null"
+    var newToken: String? = null
 
     if ((userNameData.equals(nameToCheck, ignoreCase = true)) && (passToCheck == userPassData)) {
         val tokenLenght = 32
