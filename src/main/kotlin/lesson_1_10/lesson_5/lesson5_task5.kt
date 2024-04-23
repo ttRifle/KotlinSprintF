@@ -1,4 +1,4 @@
-package org.example.lesson_5
+package lesson_1_10.lesson_5
 
 fun main() {
 
