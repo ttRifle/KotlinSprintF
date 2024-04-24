@@ -10,7 +10,7 @@ class RecipeCategory(
 class Recipes(
     val dishName: String,
     val recipe: String,
-    val listOfIngredientIds: List<String>,
+    val listOfIngredientIds: Ingredients,
     val numberOfPortions: Int,
     val inFavorites: Boolean,
     val subCategory: String,
