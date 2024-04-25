@@ -22,8 +22,7 @@ class Room(
     val roomId: Int,
     val name: String,
     val cover: String,
-    var user: User,
-    var userNames: MutableList<String> = mutableListOf(),
+    var userNames: MutableList<User> = mutableListOf(),
 ) {
     fun addUser() {
         userNames.add(user.userName)
