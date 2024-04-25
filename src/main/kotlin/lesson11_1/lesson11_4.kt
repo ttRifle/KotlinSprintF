@@ -4,13 +4,13 @@ class RecipeCategory(
     val categoryName: String,
     val subCategory: String,
     val description: String,
-    val listOfDishes: List<String>,
+    val listOfDishes: List<Recipes>,
 )
 
 class Recipes(
     val dishName: String,
     val recipe: String,
-    val listOfIngredientIds: Ingredients,
+    val listOfIngredientIds: List<Ingredients>,
     val numberOfPortions: Int,
     val inFavorites: Boolean,
     val subCategory: String,
