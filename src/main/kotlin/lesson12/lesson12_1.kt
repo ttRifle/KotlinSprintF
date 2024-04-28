@@ -1,12 +1,9 @@
 package lesson12
 
-class DayWhether(
-    val dayTemperature: Int = 12,
-    val nightTemperature: Int = 2,
-    val isRainfall: Boolean = true,
-    val isCloudy: Boolean = true,
-) {
-
+class DayWhether() {
+    var dayTemperature: Int = 12
+    var nightTemperature: Int = 2
+    var isRainfall: Boolean = true
 
     fun printWhether() {
 
@@ -23,18 +20,14 @@ class DayWhether(
 
 fun main() {
 
-    val dayWhether1 = DayWhether(
-        dayTemperature = 11,
-        nightTemperature = 3,
-        isRainfall = false,
-        isCloudy = false,
-    )
+    val dayWhether1 = DayWhether()
 
-    val dayWhether2 = DayWhether(
-        dayTemperature = 14,
-        nightTemperature = 4,
-        isCloudy = false,
-    )
+    val dayWhether2 = DayWhether()
+
+    dayWhether2.dayTemperature = 14
+    dayWhether2.nightTemperature = 3
+    dayWhether2.isRainfall = false
+
 
     dayWhether1.printWhether()
     dayWhether2.printWhether()
