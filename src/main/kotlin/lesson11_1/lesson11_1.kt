@@ -1,4 +1,3 @@
-package lesson11_1
 
 class ForumMember(
     var userId: Int = 0,
@@ -88,4 +87,3 @@ fun main() {
     forum.printThread()
 
 }
-
