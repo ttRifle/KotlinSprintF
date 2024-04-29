@@ -1,21 +1,14 @@
 package lesson13
 
-class PhoneDir(_name: String, _phoneNumber: Long) {
+class PhoneDir(val name: String, val phoneNumber: Long) {
 
-    val name = _name
-    val phoneNumber = _phoneNumber
-    var company: String? = String()
-
-    constructor(
-        name: String,
-        phoneNumber: Long,
-        company: String?
-    ) : this(name, phoneNumber)
+    val company: String? = null
 
 }
 
 
 fun main() {
 
+    val phoneDir = PhoneDir("", 2)
 
 }
