@@ -1,32 +1,18 @@
 import kotlin.random.Random
 
-class MonthWeather(_dayTemps: MutableList<Int>, _nightTemps: MutableList<Int>, _rainyDays: Int) {
+class MonthWeather(_listOfWeather: List<DayWeatherNew>) {
 
-    var dayTemps = _dayTemps
-    var nightTemps = _nightTemps
-    var rainyDays = _rainyDays
-    var averageDayTemp = 0
-    var averageNightTemp = 0
+    var listOfWeather = _listOfWeather
+    val rainyDays = listOfWeather.filter { it.isRainfall }.size
+    val nightTemps = listOfWeather.map { it.nightTemperature }.average().toInt()
+    val dayTemps = listOfWeather.map { it.dayTemperature }.average().toInt()
 
-    constructor(
-        dayTemps: MutableList<Int>,
-        nightTemps: MutableList<Int>,
-        rainyDays: Int,
-        averageDayTemp: Int,
-        averageNightTemp: Int
-    ) : this(dayTemps, nightTemps, rainyDays) {
-
-        this.averageDayTemp = dayTemps.average().toInt()
-        this.averageNightTemp = nightTemps.average().toInt()
-
-    }
-
-    fun printWheater() {
+    fun printWeather() {
 
         println(
             """
-            |Средняя температура днем: $averageDayTemp 
-            |Средняя температура ночью: $averageNightTemp
+            |Средняя температура днем: $dayTemps  
+            |Средняя температура ночью: $nightTemps
             |Количество дней с осадками: $rainyDays""".trimMargin()
         )
 
@@ -34,8 +20,7 @@ class MonthWeather(_dayTemps: MutableList<Int>, _nightTemps: MutableList<Int>, _
 
 }
 
-
-class DayWheatherNew(_dayTemperature: Int, _nightTemperature: Int, _isRainfall: Boolean) {
+class DayWeatherNew(_dayTemperature: Int, _nightTemperature: Int, _isRainfall: Boolean) {
 
     var dayTemperature = _dayTemperature
     var nightTemperature = _nightTemperature
@@ -43,42 +28,30 @@ class DayWheatherNew(_dayTemperature: Int, _nightTemperature: Int, _isRainfall: 
 
     init {
 
-        this.dayTemperature = _dayTemperature - KEL_TO_CEL.toInt()
-        this.nightTemperature = _nightTemperature - KEL_TO_CEL.toInt()
+        this.dayTemperature = _dayTemperature - KEL_TO_CEL
+        this.nightTemperature = _nightTemperature - KEL_TO_CEL
 
     }
 
 }
 
 fun main() {
-    val daysMonth = 30
+
+    val monthDays = 30
     val temperatureRange = (270..290)
-    val listOfDayWheatherNew: MutableList<DayWheatherNew> = mutableListOf()
-    var monthWeather = MonthWeather(mutableListOf(), mutableListOf(), 0)
+    val listOfDayWeatherNew: MutableList<DayWeatherNew> = mutableListOf()
 
-    for (i in 0..<daysMonth) {
+    for (i in 0..<monthDays) {
 
-        val dayWheatherNew = DayWheatherNew(temperatureRange.random(), temperatureRange.random(), Random.nextBoolean())
-
-        listOfDayWheatherNew.add(dayWheatherNew)
-
-        monthWeather.dayTemps.add(listOfDayWheatherNew[i].dayTemperature)
-        monthWeather.nightTemps.add(listOfDayWheatherNew[i].nightTemperature)
-
-        if (listOfDayWheatherNew[i].isRainfall) monthWeather.rainyDays++
+        val dayWeatherNew = DayWeatherNew(temperatureRange.random(), temperatureRange.random(), Random.nextBoolean())
+        listOfDayWeatherNew.add(dayWeatherNew)
 
     }
 
-    monthWeather = MonthWeather(
-        monthWeather.dayTemps,
-        monthWeather.nightTemps,
-        monthWeather.rainyDays,
-        monthWeather.averageDayTemp,
-        monthWeather.averageNightTemp
-    )
+    val monthWeather = MonthWeather(listOfDayWeatherNew)
 
-    monthWeather.printWheater()
+    monthWeather.printWeather()
 
 }
 
-const val KEL_TO_CEL = 273.12
+const val KEL_TO_CEL = 273
