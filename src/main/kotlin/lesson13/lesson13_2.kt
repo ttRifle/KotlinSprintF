@@ -4,13 +4,22 @@ class PhoneDir2(
     val name: String,
     val phoneNumber: Long,
     val company: String? = null,
-)
+) {
+
+    fun printDir2() {
+
+        val textIfNull = "<не указано>"
+
+        println("Имя: $name\nНомер: $phoneNumber\nКомпания: ${company ?: textIfNull}")
+
+    }
+
+}
 
 fun main() {
 
     val phoneDir = PhoneDir2("Alex", 92136745633)
-    val textIfNull = "<не указано>"
 
-    println("Имя: ${phoneDir.name}\nНомер: ${phoneDir.phoneNumber}\nКомпания: ${phoneDir.company ?: textIfNull}")
+    phoneDir.printDir2()
 
 }
