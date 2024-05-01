@@ -1,36 +1,26 @@
 package lesson14
 
-open class Ship(
+open class Liner1(
     val name: String,
-    val speed: Int,
-    val cargoCapacity: Int,
-    val passengersCapacity: Int,
+    val speed: Int = 100,
+    val cargoCapacity: Int = 10,
+    val passengersCapacity: Int = 100,
     val isIcebreaker: Boolean = false,
+    var isCargoLoadingActive: Boolean = false,
 )
 
-open class Liner(
-    name: String = "Liner",
-    speed: Int = 100,
-    cargoCapacity: Int = 10,
-    passengersCapacity: Int = 100,
-) : Ship(name, speed, cargoCapacity, passengersCapacity)
+class Cargo1(
+    name: String,
+) : Liner1(name, speed = 10, cargoCapacity = 100)
 
-class Cargo(
-    name: String = "Cargo",
-    speed: Int = 10,
-    cargoCapacity: Int = 100,
-) : Liner(name, speed, cargoCapacity)
-
-class Icebreaker(
-    name: String = "Icebreaker",
-    speed: Int = 10,
-    isIcebreaker: Boolean = true,
-) : Liner(name, speed)
+class Icebreaker1(
+    name: String
+) : Liner1(name, speed = 10, isIcebreaker = true)
 
 fun main() {
 
-    val liner = Liner()
-    val cargo = Cargo()
-    val icebreaker = Icebreaker()
+    val liner = Liner1("Liner")
+    val cargo = Cargo1("Cargo")
+    val icebreaker = Icebreaker1("Icebreaker")
 
 }
