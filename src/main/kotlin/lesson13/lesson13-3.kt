@@ -16,6 +16,6 @@ fun main() {
         Contact("John", 88125637544, "Apple"),
     )
 
-    phoneBook.map { if (it.company != null) println(it.company) }
+    println(phoneBook.mapNotNull { (it.company) })
 
 }
