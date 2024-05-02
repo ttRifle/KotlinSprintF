@@ -5,7 +5,6 @@ open class Liner1(
     val speed: Int = 100,
     val cargoCapacity: Int = 10,
     val passengersCapacity: Int = 100,
-    val isIcebreaker: Boolean = false,
     var isCargoLoadingActive: Boolean = false,
 )
 
@@ -14,8 +13,9 @@ class Cargo1(
 ) : Liner1(name, speed = 10, cargoCapacity = 100)
 
 class Icebreaker1(
-    name: String
-) : Liner1(name, speed = 10, isIcebreaker = true)
+    name: String,
+    val isIcebreaker: Boolean = true,
+) : Liner1(name, speed = 10)
 
 fun main() {
 
