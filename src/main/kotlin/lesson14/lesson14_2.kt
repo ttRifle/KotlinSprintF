@@ -5,11 +5,10 @@ open class Liner2(
     val speed: Int = 100,
     val cargoCapacity: Int = 10,
     val passengersCapacity: Int = 100,
-    val isIcebreaker: Boolean = false,
     var isCargoLoadingActive: Boolean = false,
 ) {
 
-    open fun cargoLoadingActivation() {
+    open fun activateCargoLoading() {
 
         isCargoLoadingActive = true
         println("На корабле $name выдвинут горизонтальный трап")
@@ -25,21 +24,17 @@ open class Liner2(
             Скорость: $speed
             Вместимость груза: $cargoCapacity
             Вместимость пассажиров: $passengersCapacity
-            Ледокол: $isIcebreaker
             Активирована погрузка: $isCargoLoadingActive
-            
         """.trimIndent()
         )
-
     }
-
 }
 
 class Cargo2(
     name: String,
 ) : Liner2(name, speed = 10, cargoCapacity = 100) {
 
-    override fun cargoLoadingActivation() {
+    override fun activateCargoLoading() {
 
         isCargoLoadingActive = true
         println("На корабле $name активирован погрузочный кран")
@@ -50,10 +45,11 @@ class Cargo2(
 }
 
 class Icebreaker2(
-    name: String
-) : Liner2(name, speed = 10, isIcebreaker = true) {
+    name: String,
+    val isIcebreaker: Boolean = true,
+) : Liner2(name, speed = 10) {
 
-    override fun cargoLoadingActivation() {
+    override fun activateCargoLoading() {
 
         isCargoLoadingActive = true
         println("На корабле $name открыты ворота со стороны кормы")
@@ -69,9 +65,9 @@ fun main() {
     val cargo = Cargo2("Cargo")
     val icebreaker = Icebreaker2("Icebreaker")
 
-    liner.cargoLoadingActivation()
-    cargo.cargoLoadingActivation()
-    icebreaker.cargoLoadingActivation()
+    liner.activateCargoLoading()
+    cargo.activateCargoLoading()
+    icebreaker.activateCargoLoading()
 
     liner.printShipInfo()
     cargo.printShipInfo()
