@@ -4,8 +4,8 @@ class DayWhetherNew2(var dayTemperature: Int, var nightTemperature: Int, var isR
 
     init {
 
-        this.dayTemperature = dayTemperature - KEL_TO_CEL3.toInt()
-        this.nightTemperature = nightTemperature - KEL_TO_CEL3.toInt()
+        this.dayTemperature -= KEL_TO_CEL3
+        this.nightTemperature -= KEL_TO_CEL3
 
         println(
             """
@@ -24,4 +24,4 @@ fun main() {
 
 }
 
-const val KEL_TO_CEL3 = 273.12
+const val KEL_TO_CEL3 = 273
