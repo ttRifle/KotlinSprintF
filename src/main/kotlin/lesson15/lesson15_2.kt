@@ -1,34 +1,30 @@
 package lesson15
 
 abstract class WeatherStationStats {
-
-    abstract val timeOfDay: String
-
+    abstract val stationValue: Int
 }
 
 class Temperature(
-    override val timeOfDay: String,
-    val temp: Int,
-) : WeatherStationStats() {
 
-}
+    override val stationValue: Int,
+    val typeOfData: String = "Температура",
+
+    ) : WeatherStationStats()
 
 class PrecipitationAmount(
-    override val timeOfDay: String,
-    val precipitationAmount: Int,
-) : WeatherStationStats() {
+    override val stationValue: Int,
+    val typeOfData: String = "Количество осадков",
 
-}
+    ) : WeatherStationStats()
 
 class WeatherServer(
-    val timeOfDay: String = String(),
-    val temperature: Int? = null,
-    val precipitationAmount: Int? = null,
+    val typeOfData: String = String(),
+    val stationValue: Int? = null,
 ) {
 
-    fun sentServerSMS(temperature: Temperature, precipitationAmount: PrecipitationAmount): WeatherServer {
+    fun sentServerSMS(typeOfData: String, dataToSent: Int): WeatherServer {
         val weatherServer =
-            WeatherServer(temperature.timeOfDay, temperature.temp, precipitationAmount.precipitationAmount)
+            WeatherServer(typeOfData, dataToSent)
         return weatherServer
     }
 
@@ -38,9 +34,11 @@ class WeatherServer(
 fun main() {
 
     val weatherServer = WeatherServer()
-    val temperature = Temperature("Утро", 2)
-    val precipitationAmount = PrecipitationAmount("утро", 30)
+    val temperature = Temperature(2)
+    val precipitationAmount = PrecipitationAmount(30)
 
-    val sentSever = weatherServer.sentServerSMS(temperature, precipitationAmount)
+    val dataToSent = precipitationAmount
+
+    val sentServer = weatherServer.sentServerSMS(dataToSent.typeOfData, dataToSent.stationValue)
 
 }
