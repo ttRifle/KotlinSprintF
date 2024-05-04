@@ -1,74 +1,64 @@
 package lesson15
 
-abstract class Creatures : Swimmable, Flyable {
-
-    abstract val creatureClass: String
-    abstract val family: String
-    abstract fun rest()
+class Seagull(
+    override val birdId: Int
+) : Flyable {
 
 }
 
-class Bird(
-    override val family: String,
-    override val creatureClass: String = "Птица",
-) : Creatures() {
-
-    override fun rest() {
-        println("Отдых")
-    }
-
-    override fun fly() {
-        println("Взлет")
-    }
+class Duck(
+    override val birdId: Int
+) : Flyable {
 
 }
 
-class Fish(
-    override val family: String,
-    override val creatureClass: String = "Рыба",
-) : Creatures() {
-
-    override fun rest() {
-        println("Отдых")
-    }
-
-    override fun fly() {
-        println("Выпрыгнуть из воды")
-    }
+class Carp(
+    override val fishId: Int
+) : Swimmable {
 
 }
 
 interface Swimmable {
 
+    val fishId: Int
+
     fun swimForward() {
         println("Плыть вперед")
     }
 
-    fun swimBack() {
-        println("Плыть назад")
+    fun swimDown() {
+        println("Плыть вниз")
     }
 }
 
 interface Flyable {
 
-    fun fly()
+    val birdId: Int
+
+    fun flyForward() {
+        println("лететь вперед")
+    }
+
+    fun flyDown() {
+        println("лететь вниз")
+    }
 
 }
 
 fun main() {
 
-    val bird1 = Bird("Чайка")
-    val bird2 = Bird("Утка")
-    val fish1 = Fish("Карась")
+    val seagull = Seagull(1)
+    val duck = Duck(2)
+    val carp = Carp(1)
 
-    bird1.rest()
-    bird1.swimForward()
-    bird1.swimBack()
-    bird1.fly()
 
-    fish1.rest()
-    fish1.swimForward()
-    fish1.swimBack()
-    fish1.fly()
+    seagull.flyForward()
+    seagull.flyDown()
+
+    duck.flyForward()
+    duck.flyDown()
+
+    carp.swimForward()
+    carp.swimDown()
 
 }
