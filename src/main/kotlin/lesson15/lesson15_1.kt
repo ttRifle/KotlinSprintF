@@ -1,26 +1,18 @@
 package lesson15
 
 class Seagull(
-    override val birdId: Int
-) : Flyable {
-
-}
+    val seagullId: Int
+) : Flyable
 
 class Duck(
-    override val birdId: Int
-) : Flyable {
-
-}
+    val duckId: Int,
+) : Flyable, Swimmable
 
 class Carp(
-    override val fishId: Int
-) : Swimmable {
-
-}
+    val carpId: Int
+) : Swimmable
 
 interface Swimmable {
-
-    val fishId: Int
 
     fun swimForward() {
         println("Плыть вперед")
@@ -32,8 +24,6 @@ interface Swimmable {
 }
 
 interface Flyable {
-
-    val birdId: Int
 
     fun flyForward() {
         println("лететь вперед")
@@ -57,6 +47,9 @@ fun main() {
 
     duck.flyForward()
     duck.flyDown()
+    duck.swimForward()
+    duck.swimDown()
+
 
     carp.swimForward()
     carp.swimDown()
