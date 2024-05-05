@@ -5,13 +5,13 @@ abstract class MusicShop {
     abstract val storageQuantity: Int
 }
 
-class Instruments(
+class Instrument(
     override val name: String,
     override val storageQuantity: Int,
-    val listOfParts: List<Parts> = listOf(),
+    val listOfParts: List<Part> = listOf(),
 ) : MusicShop(), Searchable
 
-class Parts(
+class Part(
     override val name: String,
     override val storageQuantity: Int
 ) : MusicShop()
@@ -26,9 +26,9 @@ interface Searchable {
 
 fun main() {
 
-    val parts = Parts("Трость", 100)
-    val instruments = Instruments("Кларнет", 100, listOf(parts))
+    val part = Part("Трость", 100)
+    val instrument = Instrument("Кларнет", 100, listOf(part))
 
-    instruments.searchByName()
+    instrument.searchByName()
 
 }
