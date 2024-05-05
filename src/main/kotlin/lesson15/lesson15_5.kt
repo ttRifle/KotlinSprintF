@@ -1,6 +1,6 @@
 package lesson15
 
-abstract class Vehicles : Moveable, PassengerTransportable {
+abstract class Vehicle : Moveable, PassengerTransportable {
     abstract val cargoCapacity: Int
     abstract val passengersCapacity: Int
 }
@@ -8,7 +8,7 @@ abstract class Vehicles : Moveable, PassengerTransportable {
 class PassengerCar(
     override val cargoCapacity: Int = 0,
     override val passengersCapacity: Int = 3,
-) : Vehicles() {
+) : Vehicle() {
     override fun loadUpPassengers(passengersTransported: Int): Int {
         val passengers = passengersTransported + passengersCapacity
         println("Загружено $passengersCapacity пассажира. Сейчас в машине $passengers.")
@@ -26,7 +26,7 @@ class PassengerCar(
 class CargoCar(
     override val cargoCapacity: Int = 2,
     override val passengersCapacity: Int = 1,
-) : Vehicles(), CargoTransportable {
+) : Vehicle(), CargoTransportable {
     override fun loadUpPassengers(passengersTransported: Int): Int {
         val passengers = passengersTransported + passengersCapacity
         println("Загружен $passengersCapacity пассажир. Сейчас в машине $passengers.")
