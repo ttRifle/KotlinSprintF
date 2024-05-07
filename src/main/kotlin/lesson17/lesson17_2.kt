@@ -1,11 +1,11 @@
 package lesson17
 
-class Ship1 {
+class Ship1(name: String) {
 
-    var name: String = "Аврора"
+    var name: String = name
         set(value) {
             if (value != field)
-                println("Нельзя")
+                println("Имя корабля менять нельзя")
         }
     val averageSpeed: Int = 0
     val motherPort: String = "Спб"
@@ -14,7 +14,7 @@ class Ship1 {
 
 fun main() {
 
-    val ship1 = Ship1()
+    val ship1 = Ship1("Аврора")
 
     ship1.name = "1"
     println(ship1.name)
