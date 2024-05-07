@@ -1,34 +1,28 @@
 package lesson17
 
-class Folder {
+class Folder(
+    _name: String,
+    _numberOfFiles: Int,
+    _isSecretFlag: Boolean,
+) {
 
-    var name: String = "Алегрова"
-        get() {
+    var name: String = _name
+        get() =
+            if (isSecretFlag) "Скрытая папка, количестов файлов 0".also { println(it) }
+            else field.also { println("Папка $field, количество файлов $numberOfFiles") }
 
-            if (isSecretFlag) {
-                field = "Скрытая папка"
-                println("$field, количество файлов 0")
-                return field
-            } else {
-                println("Папка $field, количество файлов $numberOfFiles")
-                return field
-            }
-
-        }
-
-
-    val numberOfFiles: Int = 10
-    var isSecretFlag: Boolean = false
+    val numberOfFiles: Int = _numberOfFiles
+    var isSecretFlag: Boolean = _isSecretFlag
 
 }
 
 fun main() {
 
-    val folder = Folder()
+    val folder = Folder("Аллегрова", 10, false)
 
-    var a = folder.name
+    var newFolderName = folder.name
     folder.isSecretFlag = true
-    a = folder.name
+    newFolderName = folder.name
 
 
 }
