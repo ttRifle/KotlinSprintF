@@ -10,6 +10,6 @@ enum class Fish {
 fun main() {
 
     println("Вы можете добавить следующих рыб в свой аквариум:")
-    Fish.entries.forEach() { println(it) }
+    println(Fish.entries)
 
 }
