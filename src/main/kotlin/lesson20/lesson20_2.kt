@@ -12,11 +12,11 @@ fun main() {
 
     val player = Player("user", 62, 100)
 
-    val heal: (Player) -> Unit = fun(player: Player) {
-        player.currentHealth += player.maxHealth - player.currentHealth
-    }
+    val getCurrentHealthToMaxHealth: () -> Int = fun(): Int = player.maxHealth - player.currentHealth
 
-    println(player.currentHealth)
+    val heal: (Player) -> Unit = fun(player: Player) {
+        player.currentHealth += getCurrentHealthToMaxHealth()
+    }
 
     heal(player)
 
