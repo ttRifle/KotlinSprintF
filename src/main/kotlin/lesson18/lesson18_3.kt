@@ -1,51 +1,61 @@
 package lesson18
 
-open class Animal(
-    open val name: String = String(),
-) {
-    open val eatType: String = ""
+abstract class Animal {
 
-    open fun sleep() {}
+    abstract val name: String
+    abstract val eatType: String
 
-    open fun eat() = ""
+    abstract fun sleep()
 
+    abstract fun eat(): String
 
 }
 
 
 class Fox(
+
     override val name: String,
-) : Animal() {
+
+    ) : Animal() {
 
     override val eatType: String = "Ягода"
 
-    override fun eat(): String {
-        return "[$name]->[$eatType]"
-
+    override fun sleep() {
+        TODO("Not yet implemented")
     }
+
+    override fun eat(): String = "[$name]->[$eatType]"
 
 }
 
 class Dog(
-    override val name: String
-) : Animal() {
+
+    override val name: String,
+
+    ) : Animal() {
 
     override val eatType: String = "Кость"
-
-    override fun eat(): String {
-        return "[$name]->[$eatType]"
+    override fun sleep() {
+        TODO("Not yet implemented")
     }
+
+    override fun eat(): String = "[$name]->[$eatType]"
+
 }
 
 class Cat(
-    override val name: String
-) : Animal() {
+
+    override val name: String,
+
+    ) : Animal() {
 
     override val eatType: String = "Рыба"
-
-    override fun eat(): String {
-        return "[$name]->[$eatType]"
+    override fun sleep() {
+        TODO("Not yet implemented")
     }
+
+    override fun eat(): String = "[$name]->[$eatType]"
+
 }
 
 fun main() {
