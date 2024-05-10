@@ -4,7 +4,7 @@ fun main() {
 
     val username = "Boris"
 
-    val greetUser: () -> String = { "С наступающим Новым Годом, $username!" }
+    val greetUser: () -> String = fun(): String = "С наступающим Новым Годом, $username!"
 
     println(greetUser())
 
