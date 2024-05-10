@@ -8,15 +8,7 @@ enum class TankMissile(private val shootPower: Int) {
     GREEN(10),
     RED(20);
 
-    fun getShootPower(missile: TankMissile): Int {
-
-        return when (missile) {
-            BLUE -> BLUE.shootPower
-            GREEN -> GREEN.shootPower
-            RED -> RED.shootPower
-        }
-
-    }
+    fun getShootPower() = shootPower
 
 }
 
@@ -26,7 +18,7 @@ class Tank(_missile: TankMissile) {
 
     fun shoot() {
 
-        println(" Выстрел нанес ${BLUE.getShootPower(missile)}")
+        println(" Выстрел нанес ${missile.getShootPower()}")
 
     }
 
