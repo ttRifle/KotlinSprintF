@@ -1,29 +1,40 @@
 package lesson18
 
-open class Box {
-    open val name: String = ""
-    open var square: Int = 0
+import kotlin.math.pow
 
-    open fun getPackageSquare(): Int = 0
+abstract class Box {
+
+    abstract val name: String
+    abstract val square: Int
+
+    abstract fun getPackageSquare(): Int
+
 }
 
 class RectangleBox(
-    override val name: String,
-    val height: Int,
-    val width: Int,
-    val depth: Int,
-) : Box() {
 
-    override fun getPackageSquare() = height * width * depth
+    override val name: String,
+    private val height: Int,
+    private val width: Int,
+    private val length: Int,
+
+    ) : Box() {
+
+    override val square: Int = 0
+    override fun getPackageSquare() = 2 * length * height + 2 * length * width + 2 * height * width
 
 }
 
 class CubeBox(
+
     override val name: String,
-    val edge: Int,
+    private val edge: Int
+
 ) : Box() {
 
-    override fun getPackageSquare() = 6 * edge * 2
+    override val square: Int = 0
+
+    override fun getPackageSquare() = 6 * edge.toDouble().pow(2).toInt()
 }
 
 
@@ -38,7 +49,9 @@ fun main() {
 }
 
 fun getBoxSquare(box: List<Box>) {
+
     for (i in box.indices) {
         println("Для посылки №${i + 1} нужна коробка ${box[i].name} с площадью ${box[i].getPackageSquare()}")
     }
+
 }
