@@ -5,8 +5,14 @@ enum class Category {
     STATIONARY,
     OTHERS;
 
-    fun getCategoryName(): String = this.name
+    fun getCategoryName(): String {
+        return when (this) {
+            CLOTHES -> "Одежда"
+            STATIONARY -> "Канцелярские товары"
+            OTHERS -> "Другое"
+        }
 
+    }
 }
 
 class GOOD33(_name: String, _id: Int, _category: Category) {
