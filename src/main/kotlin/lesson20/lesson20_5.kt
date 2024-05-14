@@ -10,14 +10,14 @@ class Robot {
         "Ваше время ограничено, не тратьте его, живя чужой жизнью"
     )
 
-    private var currentPhrase: String = listOfPhrases[listOfPhrases.indices.random()]
+    private var currentPhrase: () -> (String) = { listOfPhrases[listOfPhrases.indices.random()] }
 
     fun say() {
-        println(currentPhrase)
+        println(currentPhrase())
     }
 
     fun setModifier(reverseWords: (String) -> String) {
-        currentPhrase = reverseWords(currentPhrase)
+        currentPhrase = { reverseWords(listOfPhrases[listOfPhrases.indices.random()]) }
     }
 
 }
