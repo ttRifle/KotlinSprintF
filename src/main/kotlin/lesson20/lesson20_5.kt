@@ -10,14 +10,18 @@ class Robot {
         "Ваше время ограничено, не тратьте его, живя чужой жизнью"
     )
 
-    private var currentPhrase: () -> (String) = { listOfPhrases[listOfPhrases.indices.random()] }
+    val reverseWords: (String) -> (String) = { phrase: String -> phrase.split(" ").reversed().joinToString(" ") }
+
+    val currentPhrase = { listOfPhrases.random() }
 
     fun say() {
         println(currentPhrase())
     }
 
-    fun setModifier(reverseWords: (String) -> String) {
-        currentPhrase = { reverseWords(listOfPhrases[listOfPhrases.indices.random()]) }
+    fun setModifier(): String = reverseWords(currentPhrase())
+
+    fun say(modified: String) {
+        println(modified)
     }
 
 }
@@ -26,12 +30,8 @@ fun main() {
 
     val robot = Robot()
 
-    val reverseWords: (String) -> (String) = { phrase: String -> phrase.split(" ").reversed().joinToString(" ") }
-
     robot.say()
 
-    robot.setModifier(reverseWords)
-
-    robot.say()
+    robot.say(robot.setModifier())
 
 }
