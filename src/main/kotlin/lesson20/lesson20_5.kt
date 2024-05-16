@@ -21,12 +21,9 @@ class Robot {
 }
 
 fun main() {
-
     val reverseWords: (String) -> String = { phrase: String -> phrase.split(" ").reversed().joinToString(" ") }
     val robot = Robot()
-
     robot.say()
     robot.setModifier(reverseWords)
     robot.say()
-
 }
