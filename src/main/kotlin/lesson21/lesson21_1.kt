@@ -8,7 +8,7 @@ fun main() {
         val vowel = "aoeiuy"
         var count = 0
 
-        word.forEach {
+        this.forEach {
             for (i in vowel.indices) {
                 if (vowel[i].equals(it, ignoreCase = true)) count++
             }
