@@ -2,11 +2,10 @@ package lesson21
 
 fun main() {
 
-    val experience: Map<String, Int> = mapOf("pistol" to 0, "machine gun" to 1000, "knife" to 1000, "rifle" to 200)
-
-    fun Map<String, Int>.maxCategory(): String =
-        (this.filterValues { it == this.maxOf { max -> max.value } }).keys.max().toString()
+    val experience: Map<String, Int> = mapOf("pistol" to 0, "machine gun" to 1001, "knife" to 1001, "rifle" to 200)
 
     println(experience.maxCategory())
 
 }
+
+fun Map<String, Int>.maxCategory(): String? = maxByOrNull { it.value }?.key
