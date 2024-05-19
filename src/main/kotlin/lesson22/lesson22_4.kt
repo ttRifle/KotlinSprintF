@@ -1,26 +1,26 @@
 package lesson22
 
-class ViewModel {
-
-    var mainScreenState: MainScreenState? = null
+class ViewModel(
+    private var mainScreenState: MainScreenState? = MainScreenState(),
+) {
 
     data class MainScreenState(
+        val data: String? = null,
         val isLoading: Boolean = false,
-        val data: String = "",
     )
 
-    fun loadData() {
+    fun loadData(data: MainScreenState?) {
 
-        if (mainScreenState != null) {
-            if (mainScreenState?.isLoading == false) {
-                println("Загрузка данных")
-                mainScreenState = mainScreenState?.copy(isLoading = true)
-            } else {
-                println("Наличие загруженных данных")
-                mainScreenState = mainScreenState?.copy(isLoading = false)
-            }
+        if (data == null) {
+            println("отсутствуют данные")
         } else {
-            println("Данные отсутствуют")
+            if (mainScreenState?.isLoading == false) {
+                println("загрузка данных")
+                mainScreenState = mainScreenState?.copy(data = data.data, isLoading = true)
+            } else {
+                println("наличие загруженных данных")
+                mainScreenState = mainScreenState?.copy(data = data.data, isLoading = false)
+            }
         }
 
     }
@@ -29,13 +29,14 @@ class ViewModel {
 fun main() {
 
     val viewModel = ViewModel()
+    var data: ViewModel.MainScreenState? = null
 
-    viewModel.loadData()
+    viewModel.loadData(data)
 
-    viewModel.mainScreenState = ViewModel.MainScreenState(true, "some data")
+    data = ViewModel.MainScreenState("some data")
 
-    viewModel.loadData()
-    viewModel.loadData()
+    viewModel.loadData(data)
+    viewModel.loadData(data)
 
 }
 
