@@ -13,10 +13,9 @@ data class DataBook22(
 fun main() {
 
     val regularBook = RegularBook22("dictionary", "Mark")
-
     val dataBook = DataBook22("dictionary", "Mark")
 
-    println("${regularBook}, тк у обычных классов по умолчанию toString выводит название класса")
-    println("${dataBook}, тк у дата классов по умолчанию toString выводит название класса и его поля")
+    println(regularBook) //  по умолчанию toString выведет в консоль хешкод объекта для обычного класса
+    println(dataBook) //  по умолчанию toString выведет название класса и его поля для дата класса
 
 }
